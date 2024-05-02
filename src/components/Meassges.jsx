@@ -9,9 +9,10 @@ function Meassges() {
   if (!messages) return;
   return (
     <div className="px-4 flex-1 overflow-auto">
-      {messages?.map((message) => {
-        return <Meassage key={message._id} message={message} />;
-      })}
+      {messages &&
+        messages?.map((message) => {
+          return <Meassage key={message._id} message={message} />;
+        })}
     </div>
   );
 }
