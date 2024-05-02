@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Signup from "./components/Signup";
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
+
 const router = createBrowserRouter([
   {
     path: "/",
