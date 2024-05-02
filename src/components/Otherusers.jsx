@@ -7,9 +7,9 @@ function Otherusers() {
   useGetOtheruser();
   const { otherUsers } = useSelector((store) => store.user);
 
-  if (!otherUsers) return null; // Render nothing if otherUsers is null or undefined
+  if (!otherUsers) return null;
   return (
-    <div className="overflow-auto">
+    <div className="overflow-auto flex-1">
       {otherUsers?.map((user) => (
         <OtherUser key={user._id} user={user} />
       ))}

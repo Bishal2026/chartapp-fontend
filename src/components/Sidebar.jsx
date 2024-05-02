@@ -1,8 +1,23 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
-
 import Otherusers from "./Otherusers";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
 function Sidebar() {
+  const naviagate = useNavigate();
+  const logoutHandeler = async () => {
+    try {
+      const res = await axios.get("http://localhost:8000/api/v1/user/logout");
+      if (res.data.success) {
+        naviagate("/login");
+        toast.success(res.data.messsage);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className=" border-r border-zinc-400 p-4 flex flex-col">
       {" "}
@@ -19,7 +34,9 @@ function Sidebar() {
       <div className="divider px-2 "></div>
       <Otherusers />
       <div className="mt-2">
-        <button className="btn btn-sm btn-error">Logout</button>
+        <button onClick={logoutHandeler} className="btn btn-sm btn-error">
+          Logout
+        </button>
       </div>
     </div>
   );
