@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Sendinput from "./Sendinput";
 import Meassges from "./Meassges";
 import { useDispatch, useSelector } from "react-redux";
-import { setAuthUser, setSeletedUser } from "../redux/userSlice";
+import { setSeletedUser } from "../redux/userSlice";
 
 function MeassageContainer() {
   const { seletedUser } = useSelector((store) => store.user);
