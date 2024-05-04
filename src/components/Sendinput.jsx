@@ -8,7 +8,7 @@ import { setMessages } from "../redux/messageSlice";
 function Sendinput() {
   const [message, setMessage] = useState("");
   const { seletedUser } = useSelector((store) => store.user);
-  const { messages } = useSelector((store) => store.message);
+  const { messages } = useSelector((store) => store.messages);
 
   const dispatch = useDispatch();
   const sentmessageHandeler = async (e) => {

@@ -7,7 +7,7 @@ import socketReducer from "./socketSlice.js";
 const store = configureStore({
   reducer: {
     user: userReducer,
-    message: messaageReducer,
+    messages: messaageReducer,
     socket: socketReducer,
   },
 });

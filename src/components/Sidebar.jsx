@@ -5,7 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setOtherUser } from "../redux/userSlice";
+import { setAuthUser, setOtherUser } from "../redux/userSlice";
 
 function Sidebar() {
   const [search, setSearch] = useState("");
@@ -30,6 +30,7 @@ function Sidebar() {
       if (res.data.success) {
         naviagate("/login");
         toast.success(res.data.messsage);
+        dispatch(setAuthUser(null));
       }
     } catch (error) {
       console.log(error);
