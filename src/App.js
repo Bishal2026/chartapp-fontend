@@ -3,9 +3,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Signup from "./components/Signup";
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
+
+import io from "socket.io-client";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import io from "socket.io-client";
 
 const router = createBrowserRouter([
   {
@@ -28,15 +29,7 @@ function App() {
   useEffect(() => {
     if (authUser) {
       const socket = io("http://localhost:8000", {});
-      socket.on("error", (error) => {
-        console.error("Socket connection error:", error);
-      });
       setSocket(socket);
-
-      // Cleanup function to close the socket connection when the component unmounts
-      return () => {
-        socket.disconnect();
-      };
     }
   }, [authUser]);
   return (
