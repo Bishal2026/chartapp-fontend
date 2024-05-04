@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setOtherUser } from "../redux/userSlice";
+import { baseUrl } from "../baseUrl";
 
 const useGetOtheruser = () => {
   const dispatch = useDispatch();
@@ -10,8 +11,9 @@ const useGetOtheruser = () => {
     const fetchOtherUser = async () => {
       try {
         axios.defaults.withCredentials = true;
-        const res = await axios.get("http://localhost:8000/api/v1/user");
-        dispatch(setOtherUser(res.data.otherUsers));
+        const res = await axios.get(`${baseUrl}/api/v1/user`);
+        console.log(res);
+        dispatch(setOtherUser(res.data));
       } catch (error) {
         console.log(error);
       }

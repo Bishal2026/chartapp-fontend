@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSocket } from "./redux/socketSlice";
 import { setonlieUser } from "./redux/userSlice";
+import { baseUrl } from "./baseUrl";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ function App() {
 
   useEffect(() => {
     if (authUser) {
-      const socket = io("http://localhost:8000", {
+      const socket = io(`${baseUrl}`, {
         query: {
           userId: authUser._id,
         },

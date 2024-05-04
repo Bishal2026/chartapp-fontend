@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { setAuthUser } from "../redux/userSlice";
+import { baseUrl } from "../baseUrl";
 
 function Login() {
   const [user, setUser] = useState({
@@ -16,16 +17,12 @@ function Login() {
   const onSubmitHandeler = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "http://localhost:8000/api/v1/user/login",
-        user,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
-      );
+      const res = await axios.post(`${baseUrl}/api/v1/user/login`, user, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      });
 
       if (res.data.success) {
         navigate("/");
