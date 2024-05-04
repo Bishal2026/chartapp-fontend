@@ -28,10 +28,16 @@ function Meassage({ message }) {
             />
           </div>
         </div>
-        <div className="chat-header">
-          <time className="text-xs opacity-50 text-zinc-100">12:45</time>
+        <div className="chat-header"></div>
+        <div
+          className={`chat-bubble ${
+            authUser?._id === message?.senderId
+              ? "bg-zinc-300 text-zinc-900"
+              : ""
+          } `}
+        >
+          {message?.message}
         </div>
-        <div className="chat-bubble">{message?.message}</div>
         <div className="chat-footer opacity-50"></div>
       </div>
     </div>
