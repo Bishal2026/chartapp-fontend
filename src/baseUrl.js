@@ -1,1 +1,1 @@
-export const baseUrl = "https://chart-app-backend-roan.vercel.app";
+export const baseUrl = "http://localhost:8000";
